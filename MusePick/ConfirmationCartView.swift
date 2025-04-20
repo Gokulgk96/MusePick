@@ -114,7 +114,6 @@ struct ConfirmationView: View {
                 .alert(isPresented: $showAlert) {
                    
                         Alert(title: Text("Please add the Fields Properly"), message: Text("CardNumber or Address is incorrect"), dismissButton: .default(Text("OK")))
-                    
                         }
             .onAppear() {
                 if CommonVariables.address.isEmpty {
