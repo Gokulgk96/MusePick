@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Stripe
 
 struct ConfirmationView: View {
     @State private var isPaymentAlertPresented = false
@@ -17,6 +18,8 @@ struct ConfirmationView: View {
     @State private var cartItemCount: Int = 0
     @State private var highlight: Int = 2
     @State private var showAlert = false
+    @State private var isLoading = false
+ 
 
     var body: some View {
         NavigationView {
@@ -56,14 +59,16 @@ struct ConfirmationView: View {
                 }
                 .padding()
                 Spacer()
+                if isLoading {
+                 ProgressView() .frame(maxWidth: .infinity, maxHeight: 120)
+                }
                 Button("Proceed") {
                     if cardNumber.isEmpty || address.isEmpty {
                         showAlert = true
                     } else {
-                        proceedToFinalPage = true
+                        isLoading = true
+                        createPaymentIntentOnServer()
                     }
-                        
-                    
                 }
                 .padding()
                 .frame(maxWidth: .infinity)
@@ -167,6 +172,39 @@ struct ConfirmationView: View {
                 }
             }
             return formatted
+        }
+    
+    private func createPaymentIntentOnServer() {
+            guard let url = URL(string: "https://assignment.musewearables.com/start/payment") else { return } // Replace with your server URL
+            var request = URLRequest(url: url)
+            request.httpMethod = "POST"
+            request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+            let body: [String: Any] = [
+                "amount": 1000, // Amount in cents
+                "currency": "usd"
+            ]
+            request.httpBody = try? JSONSerialization.data(withJSONObject: body)
+
+            URLSession.shared.dataTask(with: request) { data, response, error in
+                if let error = error {
+                    print("Status: \(error)")
+                    return
+                }
+                if let data = data {
+                    do {
+                        if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any], let paymentKey = json["paymentIntent"] as? String
+                        {
+                              DispatchQueue.main.async {
+                                proceedToFinalPage = true
+                            }
+                        } else {
+                            print("Invalid payment")
+                        }
+                    } catch {
+                        print("Status: \(error)")
+                    }
+                }
+            }.resume()
         }
 }
 

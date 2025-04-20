@@ -7,32 +7,48 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "5F5EC0BE-C8BC-4161-9244-703F76A78CA2"
+            uuid = "3447E416-37EB-4704-8D6C-FAB63B680C5A"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MusePick/FoodContentViewModel.swift"
+            filePath = "MusePick/ConfirmationCartView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "25"
-            endingLineNumber = "25"
-            landmarkName = "loadFoodList(category:)"
+            startingLineNumber = "201"
+            endingLineNumber = "201"
+            landmarkName = "createPaymentIntentOnServer()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "94763461-6F24-42FA-9B76-9AD6AFA645CC"
+            uuid = "B7AE8535-1199-45E5-BFE4-0E2585E4B151"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MusePick/FoodContentViewModel.swift"
+            filePath = "MusePick/ConfirmationCartView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "27"
-            endingLineNumber = "27"
-            landmarkName = "loadFoodList(category:)"
+            startingLineNumber = "204"
+            endingLineNumber = "204"
+            landmarkName = "createPaymentIntentOnServer()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "CDEF4956-9027-4F62-9D9B-8F28B5BAF853"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MusePick/ConfirmationCartView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "197"
+            endingLineNumber = "197"
+            landmarkName = "createPaymentIntentOnServer()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
